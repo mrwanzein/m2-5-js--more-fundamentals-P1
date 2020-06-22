@@ -12,13 +12,39 @@
 //  - Join the results into a string
 
 function makeIntoTitle(sentence) {
-  // Your code here
+  if(typeof sentence === 'string') {
+    let allLowerCase = sentence.toLowerCase();
+    let strArr = allLowerCase.split(' ');
+    return strArr.map((x) => x.replace(x[0], x[0].toUpperCase())).join(' ');
+  }
+  return undefined
 }
 
 // Add 6 total (5 more)
+
 expect(
   makeIntoTitle('the longest road is a great song'),
   'The Longest Road Is A Great Song'
+);
+expect(
+  makeIntoTitle('THIS iS KinDa MESSy'),
+  'This Is Kinda Messy'
+);
+expect(
+  makeIntoTitle(42),
+  undefined
+);
+expect(
+  makeIntoTitle(['THIS iS KinDa MESSy'][0]),
+  'This Is Kinda Messy'
+);
+expect(
+  makeIntoTitle(function(){console.log('hello')}),
+  undefined
+);
+expect(
+  makeIntoTitle(function(){return 'THIS iS KinDa MESSy';}),
+  undefined
 );
 
 /**

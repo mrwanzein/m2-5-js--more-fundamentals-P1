@@ -12,11 +12,25 @@
 // f(["foo", -1]) // ""
 
 function repeat(arr) {
-  // Your code here
+  let str = '';
+  if(typeof arr[0] === 'string' && typeof arr[1] === 'number'){
+    if(arr[1] <= 0) return str;
+    for(let i=0; i<arr[1]; i++) str += arr[0];
+    return str;
+  }
+  return undefined;
 }
 
 // We need 7 test cases.
 // Don't forget to test all of the question parameters
+
+expect(repeat(["foo", 3]), 'foofoofoo');
+expect(repeat(["fo", 3]), 'fofofo');
+expect(repeat([34, -1]), undefined);
+expect(repeat(["foo", true]), undefined);
+expect(repeat([function(){console.log('hey')}, -1]), undefined);
+expect(repeat(["foo", [0, 23]]), undefined);
+expect(repeat([['tesing'][0], 3]), 'tesingtesingtesing');
 
 /**
  * -------------------------------------------------------------------

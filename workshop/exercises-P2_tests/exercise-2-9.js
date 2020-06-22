@@ -13,10 +13,30 @@
 //  - `forEach` might be helpful
 
 function longestWord(str) {
-  // Place solution here
+  if(typeof str === 'string') {
+    let strArr = str.split(' ');
+    let longestWord = strArr[0];
+    let characterCount = strArr[0].length;
+
+    for(let i=1; i<strArr.length; i++) {
+      if(strArr[i].length >= characterCount){
+        characterCount = strArr[i].length;
+        longestWord = strArr[i];
+      }
+    }
+    return longestWord;
+  }
+  return undefined;
 }
 
 // We need 5 test cases
+
+expect(longestWord('this is a phrase'), 'phrase');
+expect(longestWord('this is a phrase with abcdef'), 'abcdef');
+expect(longestWord('this is a phrase with 5555555'), '5555555');
+expect(longestWord(42), undefined);
+expect(longestWord(['this is a phrase']), undefined);
+
 
 /**
  * -------------------------------------------------------------------

@@ -7,7 +7,8 @@
 // If it's an empty string (''), return undefined.
 
 function firstLetter(str) {
-  // Your code here
+  if(str === '') return undefined;
+  return str[0];
 }
 
 // Step 2

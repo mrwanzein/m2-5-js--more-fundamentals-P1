@@ -9,12 +9,29 @@
 //   - `typeof 3` returns 'number')
 
 function sumDigits(input) {
-  // Your code here
+  let sum = 0;
+  
+  if(input.every((x) => {
+    return typeof x === 'number'
+  })) {
+    input.forEach((x) => {
+      sum += x;
+    })
+
+    return sum;
+  }
+
+  return undefined;
 }
 
 // Add 5 more test cases here! 7 total
 expect(sumDigits([2, 5]), 7);
 expect(sumDigits([-1, 0]), -1);
+expect(sumDigits([345, 1234]), 1579);
+expect(sumDigits([true, 0]), undefined);
+expect(sumDigits([[-1, 45], 0]), undefined);
+expect(sumDigits([{number: 23}, 54]), undefined);
+expect(sumDigits([-1, function(){console.log('hello');}]), undefined);
 
 /**
  * -------------------------------------------------------------------
